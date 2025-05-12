@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Livros</h1>
+    <button class="btn btn-primary" (click)="novoLivro()">
+      <i class="bi bi-plus-lg"></i> Novo Livro
+    </button>
+  </div>
+
+  <app-livro-form 
+    *ngIf="showForm"
+    [livro]="livroEditando"
+    (salvo)="onSalvo($event)"
+    (cancelado)="onCancelado()">
+  </app-livro-form>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let livro of livros">
+      <app-livro-card 
+        [livro]="livro"
+        (editar)="editarLivro($event)"
+        (excluir)="excluirLivro($event)">
+      </app-livro-card>
+    </div>
+  </div>
+</div>
