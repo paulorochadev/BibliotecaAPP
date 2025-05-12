@@ -1,0 +1,11 @@
+/* Estilos mínimos para o componente raiz */
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
