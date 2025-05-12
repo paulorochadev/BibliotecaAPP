@@ -1,0 +1,44 @@
+.container {
+  padding: 2rem;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  margin-bottom: 0;
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+.btn-group {
+  .btn {
+    margin-left: 0.5rem;
+  }
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25em;
+}
