@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Assuntos</h1>
+    <button class="btn btn-primary" (click)="novoAssunto()">
+      <i class="bi bi-plus-lg"></i> Novo Assunto
+    </button>
+  </div>
+
+  <app-assunto-form 
+    *ngIf="showForm"
+    [assunto]="assuntoEditando"
+    (salvo)="onSalvo($event)"
+    (cancelado)="onCancelado()">
+  </app-assunto-form>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let assunto of assuntos">
+      <app-assunto-card 
+        [assunto]="assunto"
+        (editar)="editarAssunto($event)"
+        (excluir)="excluirAssunto($event)">
+      </app-assunto-card>
+    </div>
+  </div>
+</div>
