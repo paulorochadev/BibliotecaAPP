@@ -1,0 +1,13 @@
+<div *ngIf="loadingService.loading$ | async" class="loading-overlay">
+  <div class="loading-container">
+    <div class="spinner-container">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="loading-text" *ngIf="showText">Carregando...</div>
+    <div class="loading-progress" *ngIf="showProgress">
+      <div class="progress-bar" [style.width.%]="progress"></div>
+    </div>
+  </div>
+</div>
