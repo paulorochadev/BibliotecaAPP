@@ -1,0 +1,20 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ livro.titulo }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ livro.editora }}</h6>
+    <p class="card-text">
+      <small class="text-muted">Edição: {{ livro.edicao }}</small><br>
+      <small class="text-muted">Ano: {{ livro.anoPublicacao }}</small>
+    </p>
+  </div>
+  <div class="card-footer bg-transparent">
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-sm btn-outline-primary" (click)="onEditar()">
+        <i class="bi bi-pencil"></i> Editar
+      </button>
+      <button class="btn btn-sm btn-outline-danger" (click)="onExcluir()">
+        <i class="bi bi-trash"></i> Excluir
+      </button>
+    </div>
+  </div>
+</div>
