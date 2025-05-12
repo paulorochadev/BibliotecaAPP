@@ -1,0 +1,38 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">{{ livro ? 'Editar Livro' : 'Novo Livro' }}</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(formLivro)" #formLivro="ngForm">
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" 
+               [(ngModel)]="livroModel.titulo" name="titulo" required>
+      </div>
+      <div class="mb-3">
+        <label for="editora" class="form-label">Editora</label>
+        <input type="text" class="form-control" id="editora" 
+               [(ngModel)]="livroModel.editora" name="editora" required>
+      </div>
+      <div class="mb-3">
+        <label for="edicao" class="form-label">Edição</label>
+        <input type="number" class="form-control" id="edicao" 
+               [(ngModel)]="livroModel.edicao" name="edicao" required>
+      </div>
+      <div class="mb-3">
+        <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
+        <input type="text" class="form-control" id="anoPublicacao" 
+               [(ngModel)]="livroModel.anoPublicacao" name="anoPublicacao" 
+               pattern="\d{4}" required>
+      </div>
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="!formLivro.valid">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
