@@ -1,0 +1,19 @@
+<div 
+  *ngIf="notification$ | async as notification"
+  @fadeInOut
+  class="notification"
+  [ngClass]="getNotificationClass(notification.type)"
+  (click)="dismiss()"
+>
+  <div class="notification-content">
+    <span class="notification-icon">
+      <i 
+        [class]="notification.type === 'success' ? 'bi bi-check-circle-fill' : 'bi bi-exclamation-triangle-fill'"
+      ></i>
+    </span>
+    <span class="notification-message">{{ notification.message }}</span>
+  </div>
+  <button class="notification-close" (click)="dismiss()">
+    <i class="bi bi-x"></i>
+  </button>
+</div>
