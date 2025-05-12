@@ -1,0 +1,15 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ assunto.descricao }}</h5>
+  </div>
+  <div class="card-footer bg-transparent">
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-sm btn-outline-primary" (click)="onEditar()">
+        <i class="bi bi-pencil"></i> Editar
+      </button>
+      <button class="btn btn-sm btn-outline-danger" (click)="onExcluir()">
+        <i class="bi bi-trash"></i> Excluir
+      </button>
+    </div>
+  </div>
+</div>
