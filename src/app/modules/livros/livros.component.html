@@ -1,20 +1,27 @@
-<div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container">
+  <div class="header">
     <h1>Livros</h1>
     <button class="btn btn-primary" (click)="novoLivro()">
-      <i class="bi bi-plus-lg"></i> Novo Livro
+      <span class="icon">+</span> Novo Livro
     </button>
   </div>
 
-  <app-livro-form 
-    *ngIf="showForm"
-    [livro]="livroEditando"
-    (salvo)="onSalvo($event)"
-    (cancelado)="onCancelado()">
-  </app-livro-form>
+  <div class="form-container" *ngIf="showForm">
+    <app-livro-form 
+      [livro]="livroEditando"
+      (salvo)="onSalvo($event)"
+      (cancelado)="onCancelado()">
+    </app-livro-form>
+  </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let livro of livros">
+  <div class="books-grid">
+    <div *ngIf="livros.length === 0" class="empty-state">
+      <div class="icon">📚</div>
+      <p>Nenhum livro cadastrado</p>
+      <p>Clique em "Novo Livro" para adicionar</p>
+    </div>
+
+    <div *ngFor="let livro of livros">
       <app-livro-card 
         [livro]="livro"
         (editar)="editarLivro($event)"
