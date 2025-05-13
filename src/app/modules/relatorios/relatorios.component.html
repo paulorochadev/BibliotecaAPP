@@ -1,47 +1,42 @@
-<div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container">
+  <div class="header">
     <h1>Relatório de Livros por Autor</h1>
   </div>
 
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <div *ngIf="loading" class="text-center py-4">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <p class="mt-2">Carregando relatório...</p>
+  <div class="card">
+    <div class="table-container">
+      <div *ngIf="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Carregando relatório...</p>
       </div>
 
-      <div *ngIf="!loading && relatorioData.length === 0" class="alert alert-info">
-        Nenhum dado encontrado para exibir no relatório.
+      <div *ngIf="!loading && relatorioData.length === 0" class="empty-state">
+        <div class="icon">📊</div>
+        <p>Nenhum dado encontrado para exibir no relatório.</p>
       </div>
 
-      <div *ngIf="!loading && relatorioData.length > 0">
-        <div class="table-responsive">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Autor</th>
-                <th>Livro</th>
-                <th>Editora</th>
-                <th>Edição</th>
-                <th>Ano</th>
-                <th>Assuntos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of relatorioData">
-                <td>{{ item.autorNome }}</td>
-                <td>{{ item.livroTitulo }}</td>
-                <td>{{ item.editora }}</td>
-                <td>{{ item.edicao }}</td>
-                <td>{{ item.anoPublicacao }}</td>
-                <td>{{ item.assuntos }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table *ngIf="!loading && relatorioData.length > 0" class="table">
+        <thead>
+          <tr>
+            <th>Autor</th>
+            <th>Livro</th>
+            <th>Editora</th>
+            <th>Edição</th>
+            <th>Ano</th>
+            <th>Assuntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of relatorioData">
+            <td>{{ item.autorNome }}</td>
+            <td>{{ item.livroTitulo }}</td>
+            <td>{{ item.editora }}</td>
+            <td>{{ item.edicao }}</td>
+            <td>{{ item.anoPublicacao }}</td>
+            <td>{{ item.assuntos }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
