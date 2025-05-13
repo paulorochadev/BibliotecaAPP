@@ -1,31 +1,52 @@
-<div class="card mb-4 shadow-sm">
-  <div class="card-header bg-primary text-white">
-    <h5 class="mb-0">{{ livro ? 'Editar Livro' : 'Novo Livro' }}</h5>
+<div class="card">
+  <div class="card-header">
+    <h5>{{ livro ? 'Editar Livro' : 'Novo Livro' }}</h5>
   </div>
+  
   <div class="card-body">
     <form (ngSubmit)="onSubmit(formLivro)" #formLivro="ngForm">
-      <div class="mb-3">
+      <div class="form-group">
         <label for="titulo" class="form-label">Título</label>
-        <input type="text" class="form-control" id="titulo" 
+        <input type="text" class="form-control" id="titulo"
                [(ngModel)]="livroModel.titulo" name="titulo" required>
+        <span *ngIf="formLivro.controls['titulo']?.invalid && formLivro.controls['titulo']?.touched" 
+              class="validation-error">
+          Título é obrigatório
+        </span>
       </div>
-      <div class="mb-3">
+      
+      <div class="form-group">
         <label for="editora" class="form-label">Editora</label>
-        <input type="text" class="form-control" id="editora" 
+        <input type="text" class="form-control" id="editora"
                [(ngModel)]="livroModel.editora" name="editora" required>
+        <span *ngIf="formLivro.controls['editora']?.invalid && formLivro.controls['editora']?.touched" 
+              class="validation-error">
+          Editora é obrigatória
+        </span>
       </div>
-      <div class="mb-3">
+      
+      <div class="form-group">
         <label for="edicao" class="form-label">Edição</label>
-        <input type="number" class="form-control" id="edicao" 
-               [(ngModel)]="livroModel.edicao" name="edicao" required>
+        <input type="number" class="form-control" id="edicao"
+               [(ngModel)]="livroModel.edicao" name="edicao" required min="1">
+        <span *ngIf="formLivro.controls['edicao']?.invalid && formLivro.controls['edicao']?.touched" 
+              class="validation-error">
+          Edição deve ser um número positivo
+        </span>
       </div>
-      <div class="mb-3">
+      
+      <div class="form-group">
         <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
-        <input type="text" class="form-control" id="anoPublicacao" 
+        <input type="text" class="form-control" id="anoPublicacao"
                [(ngModel)]="livroModel.anoPublicacao" name="anoPublicacao" 
-               pattern="\d{4}" required>
+               pattern="\d{4}" required placeholder="YYYY">
+        <span *ngIf="formLivro.controls['anoPublicacao']?.invalid && formLivro.controls['anoPublicacao']?.touched" 
+              class="validation-error">
+          Informe um ano válido (4 dígitos)
+        </span>
       </div>
-      <div class="d-flex justify-content-end gap-2">
+      
+      <div class="actions">
         <button type="button" class="btn btn-secondary" (click)="onCancel()">
           Cancelar
         </button>
