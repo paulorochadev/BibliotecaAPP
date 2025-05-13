@@ -14,5 +14,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  menuOpen = false;
 
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
 }
