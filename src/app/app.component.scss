@@ -1,11 +1,18 @@
-/* Estilos mínimos para o componente raiz */
 :host {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
 }
 
 .main-content {
   flex: 1;
   padding: 2rem 0;
+}
+
+.container {
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
