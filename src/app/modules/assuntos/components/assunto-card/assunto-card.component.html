@@ -1,14 +1,21 @@
-<div class="card h-100 shadow-sm">
+<div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ assunto.descricao }}</h5>
+    <h3 class="card-title">{{ assunto.descricao }}</h3>
   </div>
-  <div class="card-footer bg-transparent">
-    <div class="d-flex justify-content-between">
-      <button class="btn btn-sm btn-outline-primary" (click)="onEditar()">
-        <i class="bi bi-pencil"></i> Editar
+
+  <div class="card-footer">
+    <div class="actions">
+      <button class="btn btn-outline primary" (click)="onEditar()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+        </svg>
+        Editar
       </button>
-      <button class="btn btn-sm btn-outline-danger" (click)="onExcluir()">
-        <i class="bi bi-trash"></i> Excluir
+      <button class="btn btn-outline danger" (click)="onExcluir()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+        Excluir
       </button>
     </div>
   </div>
