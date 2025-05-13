@@ -1,19 +1,38 @@
-<div class="card h-100 shadow-sm">
+<div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ livro.titulo }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ livro.editora }}</h6>
-    <p class="card-text">
-      <small class="text-muted">Edição: {{ livro.edicao }}</small><br>
-      <small class="text-muted">Ano: {{ livro.anoPublicacao }}</small>
-    </p>
+    <h3 class="card-title">{{ livro.titulo }}</h3>
+    <h4 class="card-subtitle">{{ livro.editora || 'Editora não informada' }}</h4>
+    
+    <div class="card-meta">
+      <div class="meta-item">
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+        </svg>
+        <span>Edição: {{ livro.edicao || 'N/I' }}</span>
+      </div>
+      
+      <div class="meta-item">
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        <span>Ano: {{ livro.anoPublicacao || 'N/I' }}</span>
+      </div>
+    </div>
   </div>
-  <div class="card-footer bg-transparent">
-    <div class="d-flex justify-content-between">
-      <button class="btn btn-sm btn-outline-primary" (click)="onEditar()">
-        <i class="bi bi-pencil"></i> Editar
+
+  <div class="card-footer">
+    <div class="actions">
+      <button class="btn btn-outline primary" (click)="onEditar()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+        </svg>
+        Editar
       </button>
-      <button class="btn btn-sm btn-outline-danger" (click)="onExcluir()">
-        <i class="bi bi-trash"></i> Excluir
+      <button class="btn btn-outline danger" (click)="onExcluir()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+        Excluir
       </button>
     </div>
   </div>
