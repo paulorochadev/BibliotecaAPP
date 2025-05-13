@@ -1,25 +1,34 @@
-<div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container">
+  <div class="header">
     <h1>Assuntos</h1>
     <button class="btn btn-primary" (click)="novoAssunto()">
-      <i class="bi bi-plus-lg"></i> Novo Assunto
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+      Novo Assunto
     </button>
   </div>
 
-  <app-assunto-form 
-    *ngIf="showForm"
-    [assunto]="assuntoEditando"
-    (salvo)="onSalvo($event)"
-    (cancelado)="onCancelado()">
-  </app-assunto-form>
+  <div class="form-container" *ngIf="showForm">
+    <app-assunto-form 
+      [assunto]="assuntoEditando"
+      (salvo)="onSalvo($event)"
+      (cancelado)="onCancelado()">
+    </app-assunto-form>
+  </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let assunto of assuntos">
-      <app-assunto-card 
-        [assunto]="assunto"
-        (editar)="editarAssunto($event)"
-        (excluir)="excluirAssunto($event)">
-      </app-assunto-card>
+  <div class="assuntos-grid">
+    <div *ngIf="assuntos.length === 0" class="empty-state">
+      <div class="icon">📚</div>
+      <p>Nenhum assunto cadastrado</p>
+      <p>Clique em "Novo Assunto" para adicionar</p>
     </div>
+
+    <app-assunto-card 
+      *ngFor="let assunto of assuntos"
+      [assunto]="assunto"
+      (editar)="editarAssunto($event)"
+      (excluir)="excluirAssunto($event)">
+    </app-assunto-card>
   </div>
 </div>
