@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Assunto } from '../../../../core/models/assunto.model';
 
@@ -13,7 +13,7 @@ import { Assunto } from '../../../../core/models/assunto.model';
   templateUrl: './assunto-form.component.html',
   styleUrl: './assunto-form.component.scss'
 })
-export class AssuntoFormComponent {
+export class AssuntoFormComponent implements OnInit {
   @Input() assunto: Assunto | null = null;
   @Output() salvo = new EventEmitter<Assunto>();
   @Output() cancelado = new EventEmitter<void>();

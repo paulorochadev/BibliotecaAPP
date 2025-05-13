@@ -1,29 +1,123 @@
+:host {
+  display: block;
+}
+
 .card {
-  border-radius: 8px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+}
 
-  .card-header {
+.card-header {
+  background-color: #4361ee;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  border-bottom: none;
+
+  h5 {
+    margin: 0;
+    font-size: 1.25rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
+}
 
-  .form-control {
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 0.5rem 0.75rem;
+.card-body {
+  padding: 1.5rem;
+}
 
-    &:focus {
-      border-color: #3498db;
-      box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
-    }
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #334155;
+  font-size: 0.875rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+  color: #334155;
+
+  &:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    background-color: white;
   }
+}
 
-  .btn {
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  min-width: 120px;
+
+  &-secondary {
+    background-color: white;
+    border-color: #e2e8f0;
+    color: #334155;
 
     &:hover {
-      transform: translateY(-1px);
+      background-color: #f1f5f9;
     }
   }
+
+  &-primary {
+    background-color: #4361ee;
+    color: white;
+    box-shadow: 0 2px 4px rgba(67, 97, 238, 0.2);
+
+    &:hover {
+      background-color: #3a56d4;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background-color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+
+.validation-error {
+  display: block;
+  margin-top: 0.5rem;
+  color: #dc2626;
+  font-size: 0.75rem;
+}
+
+.hint-text {
+  display: block;
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.75rem;
 }
