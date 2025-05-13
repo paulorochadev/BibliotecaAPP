@@ -1,25 +1,31 @@
-<div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container">
+  <div class="header">
     <h1>Autores</h1>
     <button class="btn btn-primary" (click)="novoAutor()">
-      <i class="bi bi-plus-lg"></i> Novo Autor
+      <span class="icon">+</span> Novo Autor
     </button>
   </div>
 
-  <app-autor-form 
-    *ngIf="showForm"
-    [autor]="autorEditando"
-    (salvo)="onSalvo($event)"
-    (cancelado)="onCancelado()">
-  </app-autor-form>
+  <div class="form-container" *ngIf="showForm">
+    <app-autor-form 
+      [autor]="autorEditando"
+      (salvo)="onSalvo($event)"
+      (cancelado)="onCancelado()">
+    </app-autor-form>
+  </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let autor of autores">
-      <app-autor-card 
-        [autor]="autor"
-        (editar)="editarAutor($event)"
-        (excluir)="excluirAutor($event)">
-      </app-autor-card>
+  <div class="authors-grid">
+    <div *ngIf="autores.length === 0" class="empty-state">
+      <div class="icon">✍️</div>
+      <p>Nenhum autor cadastrado</p>
+      <p>Clique em "Novo Autor" para adicionar</p>
     </div>
+
+    <app-autor-card 
+      *ngFor="let autor of autores"
+      [autor]="autor"
+      (editar)="editarAutor($event)"
+      (excluir)="excluirAutor($event)">
+    </app-autor-card>
   </div>
 </div>
